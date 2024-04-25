@@ -1,6 +1,6 @@
 package joaovitorlopes.com.github.shopping.models;
 
-public class Purchase {
+public class Purchase implements Comparable<Purchase>{
     private String description;
     private double value;
 
@@ -21,5 +21,10 @@ public class Purchase {
     public String toString() {
         return "Purchase: description = " + description +
                 " value = " + value;
+    }
+
+    @Override
+    public int compareTo(Purchase otherPurchase) {
+        return Double.valueOf(this.value).compareTo(Double.valueOf(otherPurchase.value));
     }
 }
